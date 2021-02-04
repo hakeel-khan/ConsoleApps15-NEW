@@ -37,7 +37,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void CalculateFeet()
         {
-            feet = miles * 5280
+            feet = miles * 5280;
         }
         /// <summary>
         /// Here when the programmed is running it will output the feet

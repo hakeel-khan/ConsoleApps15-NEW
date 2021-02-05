@@ -23,8 +23,15 @@ namespace ConsoleAppProject
 
             DistanceConverter converter = new DistanceConverter();
             converter.Run();
+            Console.WriteLine(GetHeading("Convert Distances"));
 
-
+        }
+        private static string GetHeading(string title)
+        {
+            return "--------------------------------\n" 
+                + "\t\t" + title 
+                + "\n\t\Hakeel Khan" +
+                "--------------------------------\n";
         }
     }
 }

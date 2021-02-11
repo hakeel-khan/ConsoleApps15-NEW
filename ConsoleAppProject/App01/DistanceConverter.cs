@@ -48,15 +48,6 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// Here we will use the Run method to call it in the program class which will allow it to run
-        /// </summary>
-        public void Run()
-        {
-            InputMiles();
-            CalculateFeet();
-            OutputFeet();
-        }
-        /// <summary>
         /// Here the user will input the Miles
         /// </summary>
         private void InputMiles()
@@ -64,6 +55,13 @@ namespace ConsoleAppProject.App01
             Console.Write("Enter the number of miles > ");
             string value = Console.ReadLine();
             miles = Convert.ToDouble(value);
+        }
+
+        private void InputMetres()
+        {
+            Console.Write("Enter the number of metres > ");
+            string value = Console.ReadLine();
+            metres = Convert.ToDouble(value);
         }
 
         private void InputFeet()

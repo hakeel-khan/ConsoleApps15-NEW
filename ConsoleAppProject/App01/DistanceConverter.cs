@@ -107,10 +107,10 @@ namespace ConsoleAppProject.App01
 
         private void OutputHeading(String prompt)
         {
-            Console.WriteLine("\n----------------------------------------");
-            Console.WriteLine("\n-------------------Distance Converter---------------------");
-            Console.WriteLine("\n-------------------By Hakeel Khan---------------------");
-            Console.WriteLine("\n----------------------------------------");
+            Console.WriteLine("\n------------------------------------------");
+            Console.WriteLine("\n------------Distance Converter------------");
+            Console.WriteLine("\n------------By Hakeel Khan----------------");
+            Console.WriteLine("\n------------------------------------------");
 
             Console.WriteLine(prompt);
             Console.WriteLine();

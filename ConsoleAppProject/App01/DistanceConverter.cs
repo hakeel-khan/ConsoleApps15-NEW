@@ -3,10 +3,11 @@
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// This app will allow the user to input a distance as a unit (fromUnit) and
+    /// it will calculate and output the distance (toUnit).
     /// </summary>
     /// <author>
-    /// Student Name version 0.1
+    /// Hakeel version 0.1
     /// </author>
     public class DistanceConverter
     {
@@ -20,6 +21,9 @@ namespace ConsoleAppProject.App01
 
         private double metres;
 
+        /// <summary>
+        /// Here this method will change the Distance from Miles to Feet.
+        /// </summary>
         public void MilesToFeet()
         {
             OutputHeading("Converting Miles to Feet");
@@ -29,6 +33,9 @@ namespace ConsoleAppProject.App01
             OutputDistance(miles, nameof(miles), feet, nameof(feet));
         }
 
+        /// <summary>
+        /// This method here will change the Distance from Feet back to Miles
+        /// </summary>
         public void FeetToMiles()
         {
             OutputHeading("Converting Feet to Miles");
@@ -38,6 +45,9 @@ namespace ConsoleAppProject.App01
             OutputDistance(feet, nameof(feet), miles, nameof(miles));
         }
 
+        /// <summary>
+        /// This method here will change the distance from Miles to Metres
+        /// </summary>
         public void MilesToMetres()
         {
             OutputHeading("Converting Miles to Metres");
@@ -48,7 +58,7 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// Here the user will input the Miles
+        /// Here the user can input any distance
         /// </summary>
         
          private double InputDistance(string prompt)
@@ -65,17 +75,23 @@ namespace ConsoleAppProject.App01
             feet = miles * 5280;
         }
 
+        /// <summary>
+        /// This method will calculate the miles.
+        /// </summary>
         private void CalculateMiles()
         {
             miles = feet / FEET_IN_MILES;
         }
 
+        /// <summary>
+        /// this method will calculate the metres
+        /// </summary>
         private void CalculateMetres()
         {
             metres = miles * METRES_IN_MILES;
         }
         /// <summary>
-        /// Here when the programmed is running it will output the feet
+        /// Here when the programmed is running it will output the Distance
         /// </summary>
         private void OutputDistance(
             double fromDistance, string fromUnit,
@@ -85,6 +101,10 @@ namespace ConsoleAppProject.App01
                 $" is {toDistance} {toUnit}!");
         }
 
+        /// <summary>
+        /// Here it will output the heading and the prompt
+        /// </summary>
+        /// <param name="prompt"></param>
         private void OutputHeading(String prompt)
         {
             Console.WriteLine("\n------------------------------------------");

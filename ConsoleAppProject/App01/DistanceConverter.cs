@@ -27,6 +27,9 @@ namespace ConsoleAppProject.App01
         private string fromUnit;
         private string toUnit;
 
+        /// <summary>
+        /// Here is the Distance Converter which chooses the from unit and to unit
+        /// </summary>
         public DistanceConverter()
         {
             fromUnit = MILES;
@@ -53,11 +56,17 @@ namespace ConsoleAppProject.App01
             OutputDistance();
         }
 
+        /// <summary>
+        /// Here it will calculate the distance
+        /// </summary>
         private void CalculateDistance()
         {
             Calculation();
         }
 
+        /// <summary>
+        /// here is the calculation method which will be used in the calculate distance
+        /// </summary>
         private void Calculation()
         {
             if (fromUnit == MILES && toUnit == FEET)
@@ -70,6 +79,11 @@ namespace ConsoleAppProject.App01
             }
         }
 
+        /// <summary>
+        /// Here the user can choose which unit they would like to choose
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns></returns>
         private string SelectUnit(string prompt)
         {
             string choice = DisplayChoices(prompt);
@@ -79,6 +93,11 @@ namespace ConsoleAppProject.App01
             return unit;
         }
 
+        /// <summary>
+        /// here the user will execute the choice of what unit they would like to choose
+        /// </summary>
+        /// <param name="choice"></param>
+        /// <returns></returns>
         private static string ExecuteChoice(string choice)
         {
             if (choice.Equals("1"))
@@ -95,7 +114,11 @@ namespace ConsoleAppProject.App01
             }
             return null;
         }
-
+        /// <summary>
+        /// here the units will be displayed for the user to choose from
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns></returns>
         private static string DisplayChoices(string prompt)
         {
             Console.WriteLine();

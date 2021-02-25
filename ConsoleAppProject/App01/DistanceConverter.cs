@@ -61,13 +61,15 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void CalculateDistance()
         {
-            Calculation();
+            CalculationMilesToFeet();
+            CalculationMetresToMiles();
+            CalculationFeetToMetres();
         }
 
         /// <summary>
         /// here is the calculation method which will be used in the calculate distance
         /// </summary>
-        private void Calculation()
+        private void CalculationMilesToFeet()
         {
             if (fromUnit == MILES && toUnit == FEET)
             {
@@ -79,12 +81,36 @@ namespace ConsoleAppProject.App01
             }
         }
 
+        private void CalculationMetresToMiles()
+        {
+            if (fromUnit == MILES && toUnit == METRES)
+            {
+                toDistance = fromDistance * METRES_IN_MILES;
+            }
+            else if (fromUnit == METRES && toUnit == MILES)
+            {
+                toDistance = fromDistance / METRES_IN_MILES;
+            }
+        }
+
+        private void CalculationFeetToMetres()
+        {
+            if (fromUnit == METRES && toUnit == FEET)
+            {
+                toDistance = fromDistance * FEET_IN_METRES;
+            }
+            else if (fromUnit == FEET && toUnit == METRES)
+            {
+                toDistance = fromDistance / FEET_IN_METRES;
+            }
+        }
+
         /// <summary>
         /// Here the user can choose which unit they would like to choose
         /// </summary>
         /// <param name="prompt"></param>
         /// <returns></returns>
-        private string SelectUnit(string prompt)
+        public string SelectUnit(string prompt)
         {
             string choice = DisplayChoices(prompt);
 
@@ -98,7 +124,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         /// <param name="choice"></param>
         /// <returns></returns>
-        private static string ExecuteChoice(string choice)
+        public static string ExecuteChoice(string choice)
         {
             if (choice.Equals("1"))
             {
@@ -119,7 +145,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         /// <param name="prompt"></param>
         /// <returns></returns>
-        private static string DisplayChoices(string prompt)
+        public static string DisplayChoices(string prompt)
         {
             Console.WriteLine();
             Console.WriteLine($" 1. {FEET}");
@@ -129,6 +155,21 @@ namespace ConsoleAppProject.App01
 
             Console.Write(prompt);
             string choice = Console.ReadLine();
+            if ( choice != FEET )
+            {
+                Console.WriteLine(" Please, choose the correct choice. ");
+                return choice;
+            }
+            if (choice != METRES)
+            {
+                Console.WriteLine(" Please, choose the correct choice. ");
+                return choice;
+            }
+            if (choice != MILES)
+            {
+                Console.WriteLine(" Please, choose the correct choice. ");
+                return choice;
+            }
             return choice;
         }
 

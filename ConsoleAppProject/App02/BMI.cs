@@ -9,13 +9,10 @@ namespace ConsoleAppProject.App02
     /// </author>
     public class BMI
     {
-            double weightInStones;
-            double weightInPounds;
-            double heightInFeet;
-            double heightInInches;
-            double weightInKg;
-            double heightInMetres;
 
+        private string unitType;
+        private double feet;
+        private double inches;
 
         public void OutputHeading()
         {
@@ -26,6 +23,52 @@ namespace ConsoleAppProject.App02
 
         }
 
+        private string BMICalculation()
+        {
+            OutputHeading();
+            SelectUnit();
+            if (unitType == "1")
+            {
+                InputWeightInImperialUnit();
+                InputHeightInImperialUnit();
+            }
+
+
+        }
+
+        private void InputHeightInImperialUnit()
+        {
+            Console.WriteLine(" Please enter your height to the nearest feet and inches");
+            Console.WriteLine();
+
+            Console.Write(" Enter your height in feet > ");
+            feet = Console.ReadLine();
+        }
+
+        private void InputWeightInImperialUnit()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SelectUnit()
+        {
+            Console.WriteLine(" Please choose which unit you would like?");
+            Console.WriteLine(" 1. Imperial unit ");
+            Console.WriteLine(" 2. Metric unit ");
+            Console.Write(" Please input your choice > ");
+            unitType = Console.ReadLine();
+        }
+
+        private void ImperialCalculation()
+        {
+            Console.WriteLine(" Please enter your height in foot and inches > ");
+            Console.Write(" Please enter your height in feet ");
+        }
+
+        private void MetricCalculation()
+        {
+
+        }
 
     }
 }

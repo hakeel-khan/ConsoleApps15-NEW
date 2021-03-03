@@ -20,11 +20,11 @@ namespace ConsoleAppProject
             Console.WriteLine("BNU CO453 Applications Programming 2020-2021!");
             Console.WriteLine();
 
+            Console.WriteLine("Please choose from the following >");
+            Console.WriteLine();
+
             DistanceConverter converter = new DistanceConverter();
-
             converter.ConvertDistance();
- 
-
         }
     }
 }

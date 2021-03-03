@@ -13,6 +13,10 @@ namespace ConsoleAppProject.App02
         private string unitType;
         private double feet;
         private double inches;
+        private double stones;
+        private double pounds;
+        private double kg;
+        private double metres;
 
         public void OutputHeading()
         {
@@ -32,8 +36,32 @@ namespace ConsoleAppProject.App02
                 InputWeightInImperialUnit();
                 InputHeightInImperialUnit();
             }
+            else if (unitType == "2")
+            {
+                InputWeightInMetricUnit();
+                InputHeightInMetricUnit();
+            }
 
 
+        }
+
+        private void InputWeightInMetricUnit()
+        {
+            Console.WriteLine(" Please enter your weight to the nearest KG");
+            Console.WriteLine();
+
+            Console.Write(" Enter your weight in KG > ");
+            kg = Convert.ToDouble(Console.ReadLine());
+
+        }
+
+        private void InputHeightInMetricUnit()
+        {
+            Console.WriteLine(" Please enter your height to the nearest Metres");
+            Console.WriteLine();
+
+            Console.Write(" Enter your height in Metres > ");
+            metres = Convert.ToDouble(Console.ReadLine());
         }
 
         private void InputHeightInImperialUnit()
@@ -42,12 +70,22 @@ namespace ConsoleAppProject.App02
             Console.WriteLine();
 
             Console.Write(" Enter your height in feet > ");
-            feet = Console.ReadLine();
+            feet = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write(" Enter your height in inches > ");
+            inches = Convert.ToDouble(Console.ReadLine());
         }
 
         private void InputWeightInImperialUnit()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(" Please enter your weight to the nearest stones and pounds");
+            Console.WriteLine();
+
+            Console.Write(" Enter your weight in stones > ");
+            stones = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write(" Enter your weight in pounds > ");
+            pounds = Convert.ToDouble(Console.ReadLine());
         }
 
         private void SelectUnit()

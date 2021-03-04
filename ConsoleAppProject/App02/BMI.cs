@@ -17,6 +17,13 @@ namespace ConsoleAppProject.App02
         private double pounds;
         private double kg;
         private double metres;
+        private double weightImperial;
+        private double heightImperial;
+        private double imperialBMI;
+        private double metricBMI;
+
+
+
 
         public void OutputHeading()
         {
@@ -27,7 +34,7 @@ namespace ConsoleAppProject.App02
 
         }
 
-        private string BMICalculation()
+        public void BMICalculation()
         {
             OutputHeading();
             SelectUnit();
@@ -35,11 +42,17 @@ namespace ConsoleAppProject.App02
             {
                 InputWeightInImperialUnit();
                 InputHeightInImperialUnit();
+
+                ImperialCalculation();
+                BMIResults(imperialBMI);
             }
             else if (unitType == "2")
             {
                 InputWeightInMetricUnit();
                 InputHeightInMetricUnit();
+
+                MetricCalculation();
+                BMIResults(metricBMI);
             }
 
 
@@ -99,13 +112,58 @@ namespace ConsoleAppProject.App02
 
         private void ImperialCalculation()
         {
-            Console.WriteLine(" Please enter your height in foot and inches > ");
-            Console.Write(" Please enter your height in feet ");
+            double newPounds = stones * 14;
+            weightImperial = pounds + newPounds;
+
+            double newInches = feet * 12;
+            heightImperial = inches + newInches;
+
+            imperialBMI = (weightImperial * 703) / (heightImperial * heightImperial);
         }
 
         private void MetricCalculation()
         {
+            metricBMI = kg / (metres * metres);
+        }
 
+        private void BMIResults(double BMI)
+        {
+            if (BMI < 18.5)
+            {
+                Console.WriteLine(" Your BMI result is "+ BMI);
+                Console.WriteLine();
+                Console.WriteLine(" You are underweight! ");
+            }
+            else if (BMI >= 18.5 && BMI <= 24.9)
+            {
+                Console.WriteLine(" Your BMI result is "+ BMI);
+                Console.WriteLine();
+                Console.WriteLine(" You are normal! ");
+            }
+            else if (BMI >= 25 && BMI <= 29.9)
+            {
+                Console.WriteLine(" Your BMI result is " + BMI);
+                Console.WriteLine();
+                Console.WriteLine(" You are overweight! ");
+            }
+            else if (BMI >= 30 && BMI <= 34.9)
+            {
+                Console.WriteLine(" Your BMI result is " + BMI);
+                Console.WriteLine();
+                Console.WriteLine(" You are obese class 1! ");
+            }
+            else if (BMI >= 35 && BMI <= 39.9)
+            {
+                Console.WriteLine(" Your BMI result is " + BMI);
+                Console.WriteLine();
+                Console.WriteLine(" You are obese class 2! ");
+            }
+            else if (BMI >= 40 )
+            {
+                Console.WriteLine(" Your BMI result is " + BMI);
+                Console.WriteLine();
+                Console.WriteLine(" You are obese class 3! ");
+            }
         }
 
     }

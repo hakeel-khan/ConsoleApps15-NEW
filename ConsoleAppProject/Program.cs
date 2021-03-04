@@ -1,4 +1,5 @@
 ﻿using ConsoleAppProject.App01;
+using ConsoleAppProject.App02;
 using System;
 
 namespace ConsoleAppProject
@@ -23,8 +24,11 @@ namespace ConsoleAppProject
             Console.WriteLine("Please choose from the following >");
             Console.WriteLine();
 
-            DistanceConverter converter = new DistanceConverter();
-            converter.ConvertDistance();
+            //DistanceConverter converter = new DistanceConverter();
+            //converter.ConvertDistance();
+
+            BMI calculator = new BMI();
+            calculator.BMICalculation();
         }
     }
 }

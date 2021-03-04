@@ -166,5 +166,13 @@ namespace ConsoleAppProject.App02
             }
         }
 
+        private void PrintBAME()
+        {
+            Console.WriteLine("If you are Black, Asian or other ethnic groups,\n\r" +
+                "you have a higher risk.\n\r\n\r" +
+                "Adults 23 or more are at increased risk\n\r" +
+                "Adults 27.5 or more are at high risk\n\r\n\r");
+        }
+
     }
 }

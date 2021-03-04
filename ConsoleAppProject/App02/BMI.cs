@@ -21,10 +21,10 @@ namespace ConsoleAppProject.App02
         private double heightImperial;
         private double imperialBMI;
         private double metricBMI;
-
-
-
-
+            
+        /// <summary>
+        /// Here it will output the heading
+        /// </summary>
         public void OutputHeading()
         {
             Console.WriteLine("--------------------------------------");
@@ -33,7 +33,9 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("--------------------------------------");
 
         }
-
+        /// <summary>
+        /// Here in this method where the BMI will calculate itself.
+        /// </summary>
         public void BMICalculation()
         {
             OutputHeading();
@@ -54,10 +56,11 @@ namespace ConsoleAppProject.App02
                 MetricCalculation();
                 BMIResults(metricBMI);
             }
-
-
+            PrintBAME();
         }
-
+        /// <summary>
+        /// In this method it will give the user options to enter his weight in metric unit
+        /// </summary>
         private void InputWeightInMetricUnit()
         {
             Console.WriteLine(" Please enter your weight to the nearest KG");
@@ -67,7 +70,9 @@ namespace ConsoleAppProject.App02
             kg = Convert.ToDouble(Console.ReadLine());
 
         }
-
+        /// <summary>
+        /// In this method it will give the user options to enter his height in metric unit
+        /// </summary>
         private void InputHeightInMetricUnit()
         {
             Console.WriteLine(" Please enter your height to the nearest Metres");
@@ -76,7 +81,9 @@ namespace ConsoleAppProject.App02
             Console.Write(" Enter your height in Metres > ");
             metres = Convert.ToDouble(Console.ReadLine());
         }
-
+        /// <summary>
+        /// In this method it will give the user options to enter his height in imperial unit
+        /// </summary>
         private void InputHeightInImperialUnit()
         {
             Console.WriteLine(" Please enter your height to the nearest feet and inches");
@@ -88,7 +95,9 @@ namespace ConsoleAppProject.App02
             Console.Write(" Enter your height in inches > ");
             inches = Convert.ToDouble(Console.ReadLine());
         }
-
+        /// <summary>
+        /// In this method it will give the user options to enter his weight in imperial unit
+        /// </summary>
         private void InputWeightInImperialUnit()
         {
             Console.WriteLine(" Please enter your weight to the nearest stones and pounds");
@@ -100,7 +109,9 @@ namespace ConsoleAppProject.App02
             Console.Write(" Enter your weight in pounds > ");
             pounds = Convert.ToDouble(Console.ReadLine());
         }
-
+        /// <summary>
+        /// Here the user will choose which unit they would like to choose
+        /// </summary>
         private void SelectUnit()
         {
             Console.WriteLine(" Please choose which unit you would like?");
@@ -109,7 +120,9 @@ namespace ConsoleAppProject.App02
             Console.Write(" Please input your choice > ");
             unitType = Console.ReadLine();
         }
-
+        /// <summary>
+        /// Here it will do the imperial calculation
+        /// </summary>
         private void ImperialCalculation()
         {
             double newPounds = stones * 14;
@@ -120,14 +133,20 @@ namespace ConsoleAppProject.App02
 
             imperialBMI = (weightImperial * 703) / (heightImperial * heightImperial);
         }
-
+        /// <summary>
+        /// here it will do the metric calculation
+        /// </summary>
         private void MetricCalculation()
         {
             metricBMI = kg / (metres * metres);
         }
-
+        /// <summary>
+        /// here the BMI results appear and it tells the user if they are underweight or overweight
+        /// </summary>
+        /// <param name="BMI"></param>
         private void BMIResults(double BMI)
         {
+            BMI = Math.Round(BMI,2);
             if (BMI < 18.5)
             {
                 Console.WriteLine(" Your BMI result is "+ BMI);
@@ -165,7 +184,9 @@ namespace ConsoleAppProject.App02
                 Console.WriteLine(" You are obese class 3! ");
             }
         }
-
+        /// <summary>
+        /// here in this method it will print the BAME. 
+        /// </summary>
         private void PrintBAME()
         {
             Console.WriteLine("If you are Black, Asian or other ethnic groups,\n\r" +

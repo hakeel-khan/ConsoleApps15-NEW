@@ -147,7 +147,7 @@ namespace ConsoleAppProject.App02
         private void BMIResults(double BMI)
         {
             BMI = Math.Round(BMI,2);
-            if (BMI < 18.5)
+            if (BMI <= 18.5)
             {
                 Console.WriteLine(" Your BMI result is "+ BMI);
                 Console.WriteLine();

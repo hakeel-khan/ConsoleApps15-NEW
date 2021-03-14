@@ -90,6 +90,8 @@ namespace ConsoleAppProject.App02
             Console.WriteLine();
 
             Console.Write(" Enter your height in feet > ");
+            
+            
             feet = Convert.ToDouble(Console.ReadLine());
 
             Console.Write(" Enter your height in inches > ");
@@ -138,7 +140,7 @@ namespace ConsoleAppProject.App02
         /// </summary>
         private void MetricCalculation()
         {
-            metricBMI = kg / (metres * metres);
+            metricBMI = (kg) / (metres * metres);
         }
         /// <summary>
         /// here the BMI results appear and it tells the user if they are underweight or overweight
@@ -151,7 +153,7 @@ namespace ConsoleAppProject.App02
             {
                 Console.WriteLine(" Your BMI result is "+ BMI);
                 Console.WriteLine();
-                Console.WriteLine(" You are underweight! ");
+                Console.WriteLine(" You are underweight! "); 
             }
             else if (BMI >= 18.5 && BMI <= 24.9)
             {

@@ -68,11 +68,36 @@ namespace ConsoleAppProject.App03
         /// <returns></returns>
         public Grades ConvertToGrade(int mark)
         {
-            if (mark >= 0 && mark < LowestGradeD)
+            if (mark >= LowestMark && mark < LowestGradeD)
             {
                 return Grades.F;
             }
-            else return Grades.D;
+
+            else if (mark >= LowestGradeD && mark < LowestGradeC)
+            {
+                return Grades.D;
+            }
+
+            else if (mark >= LowestGradeC && mark < LowestGradeB)
+            {
+                return Grades.C;
+            }
+
+            else if (mark >= LowestGradeB && mark < LowestGradeA)
+            {
+                return Grades.B;
+            }
+
+            else if (mark >= LowestGradeA && mark < HighestMark)
+            {
+                return Grades.A;
+            }
+
+            else
+            {
+                return LowestMark;
+            }
+
         }
 
         /// <summary>

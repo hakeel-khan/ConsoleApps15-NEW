@@ -25,11 +25,11 @@ namespace ConsoleAppProject.App03
 
         public int [] GradeProfile { get; set; }
 
-        public double [] Mean { get; set; }
+        public double Mean { get; set; }
 
-        public int [] Minimum { get; set; }
+        public int Minimum { get; set; }
 
-        public int[] Maximum { get; set; }
+        public int Maximum { get; set; }
 
         //Attributes
 
@@ -103,9 +103,40 @@ namespace ConsoleAppProject.App03
         /// <summary>
         /// 
         /// </summary>
+        public void CalculateMean()
+        {
+            double total = 0;
+
+            Maximum = Marks[0];
+            Minimum = Marks[0];
+
+            foreach (int mark in Marks)
+            {
+                if(mark > Maximum)
+                {
+                    Maximum = mark;
+                }
+                else if (mark < Minimum)
+                {
+                    Minimum = mark;
+                }
+
+                total += mark; 
+            }
+            Mean = total / Marks.Length;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public void CalculateStats()
         {
-            throw new NotImplementedException();
+
+        }
+
+        public void CalculateGradeProfile()
+        {
+
         }
     }
 

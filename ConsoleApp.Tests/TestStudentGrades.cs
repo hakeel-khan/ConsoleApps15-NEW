@@ -9,6 +9,21 @@ namespace ConsoleApp.Tests
     {
         private readonly StudentGrades converter = new StudentGrades();
 
+        private int[] testMarks;
+
+        public TestStudentGrades()
+        {
+            testMarks = new int[]
+            {
+                10, 20, 30, 40, 50, 60, 70, 80, 90, 100
+            };
+        }
+
+        private readonly int[] StatsMarks = new int[]
+        {
+            10, 20, 30, 40, 50, 60, 70, 80, 90, 100
+        };
+
         [TestMethod]
         public void TestConvert0ToGradeF()
         {
@@ -21,6 +36,7 @@ namespace ConsoleApp.Tests
             //Assert
             Assert.AreEqual(expectedGrade, actualGrade);
         }
+        [TestMethod]
         public void TestConvert39ToGradeF()
         {
             //Arrange
@@ -32,6 +48,7 @@ namespace ConsoleApp.Tests
             //Assert
             Assert.AreEqual(expectedGrade, actualGrade);
         }
+        [TestMethod]
         public void TestConvert40ToGradeD()
         {
             //Arrange
@@ -43,6 +60,7 @@ namespace ConsoleApp.Tests
             //Assert
             Assert.AreEqual(expectedGrade, actualGrade);
         }
+        [TestMethod]
         public void TestConvert49ToGradeD()
         {
             //Arrange
@@ -54,6 +72,7 @@ namespace ConsoleApp.Tests
             //Assert
             Assert.AreEqual(expectedGrade, actualGrade);
         }
+        [TestMethod]
         public void TestConvert50ToGradeC()
         {
             //Arrange
@@ -65,6 +84,7 @@ namespace ConsoleApp.Tests
             //Assert
             Assert.AreEqual(expectedGrade, actualGrade);
         }
+        [TestMethod]
         public void TestConvert59ToGradeC()
         {
             //Arrange
@@ -76,6 +96,7 @@ namespace ConsoleApp.Tests
             //Assert
             Assert.AreEqual(expectedGrade, actualGrade);
         }
+        [TestMethod]
         public void TestConvert60ToGradeB()
         {
             //Arrange
@@ -87,6 +108,7 @@ namespace ConsoleApp.Tests
             //Assert
             Assert.AreEqual(expectedGrade, actualGrade);
         }
+        [TestMethod]
         public void TestConvert69ToGradeB()
         {
             //Arrange
@@ -98,6 +120,7 @@ namespace ConsoleApp.Tests
             //Assert
             Assert.AreEqual(expectedGrade, actualGrade);
         }
+        [TestMethod]
         public void TestConvert70ToGradeA()
         {
             //Arrange
@@ -109,16 +132,59 @@ namespace ConsoleApp.Tests
             //Assert
             Assert.AreEqual(expectedGrade, actualGrade);
         }
-        public void TestConvert100ToGradeA()
+        [TestMethod]
+        public void TestConvert99ToGradeA()
         {
             //Arrange
             Grades expectedGrade = Grades.A;
 
             //Act
-            Grades actualGrade = converter.ConvertToGrade(100);
+            Grades actualGrade = converter.ConvertToGrade(99);
 
             //Assert
             Assert.AreEqual(expectedGrade, actualGrade);
+        }
+
+        [TestMethod]
+        public void TestCalculateMean()
+        {
+            //Arrange 
+            converter.Marks = testMarks;
+            double expectedMean = 55.0;
+
+            //Act
+            converter.CalculateMean();
+
+            //Assert
+            Assert.AreEqual(expectedMean, converter.Mean);
+        }
+
+        [TestMethod]
+        public void TestCalculateMin()
+        {
+            //Arrange 
+            converter.Marks = StatsMarks;
+            int expectedMin = 10;
+
+            //Act
+            converter.CalculateMean();
+
+            //Assert
+            Assert.AreEqual(expectedMin, converter.Minimum);
+        }
+
+        [TestMethod]
+        public void TestCalculateMax()
+        {
+            //Arrange 
+            converter.Marks = StatsMarks;
+            int expectedMax = 100;
+
+            //Act
+            converter.CalculateMean();
+
+            //Assert
+            Assert.AreEqual(expectedMax, converter.Maximum);
         }
     }
 }

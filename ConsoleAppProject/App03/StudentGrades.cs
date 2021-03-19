@@ -23,7 +23,9 @@ namespace ConsoleAppProject.App03
 
         public int [] Marks { get; set; }
 
-        public int [] GradeProfile { get; set; }
+        public Grades [] Grades { get; set; }
+
+        public double [] GradeProfile { get; set; }
 
         public double Mean { get; set; }
 
@@ -135,6 +137,32 @@ namespace ConsoleAppProject.App03
         }
 
         public void CalculateGradeProfile()
+        {
+            GradeProfile = new double[5];
+
+            foreach (var grade in Grades)
+            {
+
+                    if (student.Grade == Grades.F)
+                        GradeProfile[0]++;
+                    else if (student.Grade == Grades.D)
+                        GradeProfile[1]++;
+                    else if (student.Grade == Grades.C)
+                        GradeProfile[2]++;
+                    else if (student.Grade == Grades.B)
+                        GradeProfile[3]++;
+                    else if (student.Grade == Grades.A)
+                        GradeProfile[4]++;
+
+            }
+
+            for (int i = 0; i < GradeProfile.Length; i++)
+            {
+                GradeProfiles[i] = GradeProfiles[i] * (100 / Students.Length);
+            }
+        }
+
+        public void CalculateGrades()
         {
 
         }

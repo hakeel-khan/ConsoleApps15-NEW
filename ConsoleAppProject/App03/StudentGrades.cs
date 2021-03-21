@@ -17,7 +17,8 @@ namespace ConsoleAppProject.App03
         public const int LowestGradeB = 60;
         public const int LowestGradeA = 70;
         public const int HighestMark = 100;
-
+        private readonly string[] Classification = new string[] { "First Class", "Upper Second Class",
+        "Lower Second Class", "Third Class", "Fail", };
         //Properties
 
         public string [] Students { get; set; }
@@ -55,6 +56,9 @@ namespace ConsoleAppProject.App03
             InputMarks();
             CalculateGrades();
             PrintStudentDetails();
+            CalculateMean();
+            CalculateGradeProfile();
+            PrintStats();
         }
 
         /// <summary>
@@ -72,6 +76,9 @@ namespace ConsoleAppProject.App03
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void PrintStudentDetails()
         {
             for (int i = 0; i < Students.Length; i++)
@@ -84,9 +91,17 @@ namespace ConsoleAppProject.App03
         /// <summary>
         /// 
         /// </summary>
-        public void OutputMarks()
+        public void PrintStats()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"mean{Mean}");
+            Console.WriteLine($"maximum{Maximum}");
+            Console.WriteLine($"minimum{Minimum}");
+
+            for (int i = 0; i < GradeProfile.Length; i++)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"{GradeProfile[i]}% - {Classification [i]}");
+            }
         }
 
         /// <summary>
@@ -113,14 +128,6 @@ namespace ConsoleAppProject.App03
                 total += mark; 
             }
             Mean = total / Marks.Length;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public void CalculateStats()
-        {
-
         }
 
         

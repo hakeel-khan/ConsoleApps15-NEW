@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace ConsoleAppProject.App03
 {
     /// <summary>
@@ -43,8 +44,17 @@ namespace ConsoleAppProject.App03
                 "Adel", "Afzaal", "Rubel",
                 "Amir", "Yusef", "Abdul",
                 "Zain" };
-            GradeProfile = new int[(int)Grades.A + 1];
+            GradeProfile = new double[5];
             Marks = new int[Students.Length];
+        }
+
+        public void RunStudentGrades()
+        {
+            OutputHeading();
+
+            InputMarks();
+            CalculateGrades();
+            PrintStudentDetails();
         }
 
         /// <summary>
@@ -52,7 +62,23 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void InputMarks()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Please enter your marks");
+            for (int i = 0; i < Students.Length; i++)
+            {
+                Console.WriteLine(Students[i]);
+                Console.Write(" Mark ");
+                Marks[i] = int.Parse(Console.ReadLine());
+            }
+
+        }
+
+        public void PrintStudentDetails()
+        {
+            for (int i = 0; i < Students.Length; i++)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"{Students[i]}-{Marks[i]}, {Grades[i]}");
+            }
         }
 
         /// <summary>
@@ -61,45 +87,6 @@ namespace ConsoleAppProject.App03
         public void OutputMarks()
         {
             throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="mark"></param>
-        /// <returns></returns>
-        public Grades ConvertToGrade(int mark)
-        {
-            if (mark >= LowestMark && mark < LowestGradeD)
-            {
-                return Grades.F;
-            }
-
-            else if (mark >= LowestGradeD && mark < LowestGradeC)
-            {
-                return Grades.D;
-            }
-
-            else if (mark >= LowestGradeC && mark < LowestGradeB)
-            {
-                return Grades.C;
-            }
-
-            else if (mark >= LowestGradeB && mark < LowestGradeA)
-            {
-                return Grades.B;
-            }
-
-            else if (mark >= LowestGradeA && mark < HighestMark)
-            {
-                return Grades.A;
-            }
-
-            else
-            {
-                return LowestMark;
-            }
-
         }
 
         /// <summary>
@@ -136,6 +123,7 @@ namespace ConsoleAppProject.App03
 
         }
 
+        
         public void CalculateGradeProfile()
         {
             GradeProfile = new double[5];
@@ -143,29 +131,56 @@ namespace ConsoleAppProject.App03
             foreach (var grade in Grades)
             {
 
-                    if (student.Grade == Grades.F)
+                    if (grade == App03.Grades.F)
                         GradeProfile[0]++;
-                    else if (student.Grade == Grades.D)
+                    else if (grade == App03.Grades.D)
                         GradeProfile[1]++;
-                    else if (student.Grade == Grades.C)
+                    else if (grade == App03.Grades.C)
                         GradeProfile[2]++;
-                    else if (student.Grade == Grades.B)
+                    else if (grade == App03.Grades.B)
                         GradeProfile[3]++;
-                    else if (student.Grade == Grades.A)
+                    else if (grade == App03.Grades.A)
                         GradeProfile[4]++;
 
             }
 
             for (int i = 0; i < GradeProfile.Length; i++)
             {
-                GradeProfiles[i] = GradeProfiles[i] * (100 / Students.Length);
+                GradeProfile[i] = GradeProfile[i] * (100 / Students.Length);
             }
         }
 
         public void CalculateGrades()
         {
+            Grades = new Grades[Students.Length];
 
+            for (int i = 0; i < Marks.Length; i++)
+			{
+            if (Marks [i] is >= LowestMark and < LowestGradeD)
+                Grades[i] = App03.Grades.F;
+
+            else if (Marks [i] is >= LowestGradeD and < LowestGradeC)
+                Grades[i] = App03.Grades.D;
+            
+            else if (Marks [i] is >= LowestGradeC and < LowestGradeB)
+                Grades[i] = App03.Grades.C;
+            
+            else if (Marks [i] is >= LowestGradeB and < LowestGradeA)
+                Grades [i] = App03.Grades.B;
+            
+            else if (Marks [i] is >= LowestGradeA and <= HighestMark)
+                Grades [i] = App03.Grades.A;
+			}
         }
+
+        private void OutputHeading()
+        {
+            Console.WriteLine("\n------------------------------------------");
+            Console.WriteLine("\n------------Student Grades----------------");
+            Console.WriteLine("\n------------By Hakeel Khan----------------");
+            Console.WriteLine("\n------------------------------------------");
+        }
+
     }
 
 

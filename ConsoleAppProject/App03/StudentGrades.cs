@@ -84,7 +84,7 @@ namespace ConsoleAppProject.App03
             for (int i = 0; i < Students.Length; i++)
             {
                 Console.WriteLine();
-                Console.WriteLine($"{Students[i]}-{Marks[i]}, {Grades[i]}");
+                Console.WriteLine($"{Students[i]} - {Marks[i]}, {Grades[i]}");
             }
         }
 
@@ -93,8 +93,11 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void PrintStats()
         {
+            Console.WriteLine();
             Console.WriteLine($"mean{Mean}");
+            Console.WriteLine();
             Console.WriteLine($"maximum{Maximum}");
+            Console.WriteLine();
             Console.WriteLine($"minimum{Minimum}");
 
             for (int i = 0; i < GradeProfile.Length; i++)
@@ -130,7 +133,9 @@ namespace ConsoleAppProject.App03
             Mean = total / Marks.Length;
         }
 
-        
+        /// <summary>
+        /// 
+        /// </summary>
         public void CalculateGradeProfile()
         {
             GradeProfile = new double[5];
@@ -157,6 +162,9 @@ namespace ConsoleAppProject.App03
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void CalculateGrades()
         {
             Grades = new Grades[Students.Length];
@@ -180,6 +188,9 @@ namespace ConsoleAppProject.App03
 			}
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void OutputHeading()
         {
             Console.WriteLine("\n------------------------------------------");

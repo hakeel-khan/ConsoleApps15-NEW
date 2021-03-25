@@ -25,124 +25,36 @@ namespace ConsoleApp.Tests
         };
 
         [TestMethod]
-        public void TestConvert0ToGradeF()
+        public void TestCalculateGradesMinAndMaxOfAllGrades()
         {
-            //Arrange
-            Grades expectedGrade = Grades.F;
+            converter.Marks = new int[]
+            {
+                0, 39, 40, 49, 50, 59, 60, 69, 70, 100
+            };
 
-            //Act
-            Grades actualGrade = converter.ConvertToGrade(0);
+            Grades[] expectedGrades = new Grades[]
+            {
+                //Grade F
+                (Grades)0, (Grades)0,
 
-            //Assert
-            Assert.AreEqual(expectedGrade, actualGrade);
-        }
-        [TestMethod]
-        public void TestConvert39ToGradeF()
-        {
-            //Arrange
-            Grades expectedGrade = Grades.F;
+                //Grade D
+                (Grades)1, (Grades)1,
 
-            //Act
-            Grades actualGrade = converter.ConvertToGrade(39);
+                //Grade C
+                (Grades)2, (Grades)2,
 
-            //Assert
-            Assert.AreEqual(expectedGrade, actualGrade);
-        }
-        [TestMethod]
-        public void TestConvert40ToGradeD()
-        {
-            //Arrange
-            Grades expectedGrade = Grades.D;
+                //Grade B
+                (Grades)3, (Grades)3,
 
-            //Act
-            Grades actualGrade = converter.ConvertToGrade(40);
+                //Grade A
+                (Grades)4, (Grades)4,
+            };
 
-            //Assert
-            Assert.AreEqual(expectedGrade, actualGrade);
-        }
-        [TestMethod]
-        public void TestConvert49ToGradeD()
-        {
-            //Arrange
-            Grades expectedGrade = Grades.D;
+            converter.CalculateGrades();
 
-            //Act
-            Grades actualGrade = converter.ConvertToGrade(49);
-
-            //Assert
-            Assert.AreEqual(expectedGrade, actualGrade);
-        }
-        [TestMethod]
-        public void TestConvert50ToGradeC()
-        {
-            //Arrange
-            Grades expectedGrade = Grades.C;
-
-            //Act
-            Grades actualGrade = converter.ConvertToGrade(50);
-
-            //Assert
-            Assert.AreEqual(expectedGrade, actualGrade);
-        }
-        [TestMethod]
-        public void TestConvert59ToGradeC()
-        {
-            //Arrange
-            Grades expectedGrade = Grades.C;
-
-            //Act
-            Grades actualGrade = converter.ConvertToGrade(59);
-
-            //Assert
-            Assert.AreEqual(expectedGrade, actualGrade);
-        }
-        [TestMethod]
-        public void TestConvert60ToGradeB()
-        {
-            //Arrange
-            Grades expectedGrade = Grades.B;
-
-            //Act
-            Grades actualGrade = converter.ConvertToGrade(60);
-
-            //Assert
-            Assert.AreEqual(expectedGrade, actualGrade);
-        }
-        [TestMethod]
-        public void TestConvert69ToGradeB()
-        {
-            //Arrange
-            Grades expectedGrade = Grades.B;
-
-            //Act
-            Grades actualGrade = converter.ConvertToGrade(69);
-
-            //Assert
-            Assert.AreEqual(expectedGrade, actualGrade);
-        }
-        [TestMethod]
-        public void TestConvert70ToGradeA()
-        {
-            //Arrange
-            Grades expectedGrade = Grades.A;
-
-            //Act
-            Grades actualGrade = converter.ConvertToGrade(70);
-
-            //Assert
-            Assert.AreEqual(expectedGrade, actualGrade);
-        }
-        [TestMethod]
-        public void TestConvert99ToGradeA()
-        {
-            //Arrange
-            Grades expectedGrade = Grades.A;
-
-            //Act
-            Grades actualGrade = converter.ConvertToGrade(99);
-
-            //Assert
-            Assert.AreEqual(expectedGrade, actualGrade);
+            //Testing the items of the expected array items 
+            // and the actual array items are they equal
+            CollectionAssert.AreEqual(converter.Grades, expectedGrades);
         }
 
         [TestMethod]
@@ -185,6 +97,39 @@ namespace ConsoleApp.Tests
 
             //Assert
             Assert.AreEqual(expectedMax, converter.Maximum);
+        }
+
+        [TestMethod]
+        public void TestCalculateGradeProfiles()
+        {
+            converter.Grades = new Grades[]
+            {
+                //Grade F
+                (Grades)0, (Grades)0,
+
+                //Grade D
+                (Grades)0, (Grades)1,
+
+                //Grade C
+                (Grades)2, (Grades)3,
+
+                //Grade B
+                (Grades)4, (Grades)4,
+
+                //Grade A
+                (Grades)4, (Grades)4,
+            };
+
+            double[] expectedGradeProfiles = new double[]
+            {
+                30, 10, 10, 10, 40
+            };
+
+            converter.CalculateGradeProfile();
+            
+            //Testing the items of the expected array items 
+            // and the actual array items are they equal
+            CollectionAssert.AreEqual(converter.GradeProfile, expectedGradeProfiles);
         }
     }
 }

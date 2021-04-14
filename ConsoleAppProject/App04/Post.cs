@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleAppProject.App04
 {
@@ -69,7 +68,6 @@ namespace ConsoleAppProject.App04
         {
             Console.WriteLine();
             Console.WriteLine($"    Author: {Username}");
-            Console.WriteLine($"    Message: {Message}");
             Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
             Console.WriteLine();
 

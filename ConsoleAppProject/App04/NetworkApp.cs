@@ -39,7 +39,7 @@ namespace ConsoleAppProject.App04
 
         private void DisplayAll()
         {
-            throw new NotImplementedException();
+            news.Display();
         }
 
         private void PostImage()

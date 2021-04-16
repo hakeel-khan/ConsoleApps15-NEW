@@ -42,7 +42,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void ConvertDistance()
         {
-            OutputHeading();
+            ConsoleHelper.OutputHeading("Distance Converter");
 
             fromUnit = SelectUnit(" Please select the from distance unit : ");
             toUnit = SelectUnit(" Please select the to distance unit : ");

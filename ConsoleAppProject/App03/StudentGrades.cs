@@ -51,7 +51,7 @@ namespace ConsoleAppProject.App03
 
         public void RunStudentGrades()
         {
-            OutputHeading();
+            ConsoleHelper.OutputHeading("Student Grades");
 
             InputMarks();
             CalculateGrades();
@@ -186,17 +186,6 @@ namespace ConsoleAppProject.App03
             else if (Marks [i] is >= LowestGradeA and <= HighestMark)
                 Grades [i] = App03.Grades.A;
 			}
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private void OutputHeading()
-        {
-            Console.WriteLine("\n------------------------------------------");
-            Console.WriteLine("\n------------Student Grades----------------");
-            Console.WriteLine("\n------------By Hakeel Khan----------------");
-            Console.WriteLine("\n------------------------------------------");
         }
 
     }

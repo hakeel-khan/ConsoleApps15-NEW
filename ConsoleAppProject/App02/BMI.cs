@@ -21,24 +21,14 @@ namespace ConsoleAppProject.App02
         private double heightImperial;
         private double imperialBMI;
         private double metricBMI;
-            
-        /// <summary>
-        /// Here it will output the heading
-        /// </summary>
-        public void OutputHeading()
-        {
-            Console.WriteLine("--------------------------------------");
-            Console.WriteLine("------Body Mass Index Calculator------");
-            Console.WriteLine("-----------By Hakeel Khan-------------");
-            Console.WriteLine("--------------------------------------");
 
-        }
         /// <summary>
         /// Here in this method where the BMI will calculate itself.
         /// </summary>
         public void BMICalculation()
         {
-            OutputHeading();
+            ConsoleHelper.OutputHeading("BMI Calculator");
+
             SelectUnit();
             if (unitType == "1")
             {

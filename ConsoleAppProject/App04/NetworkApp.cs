@@ -6,6 +6,11 @@ namespace ConsoleAppProject.App04
 {
     public class NetworkApp
     {
+        private NewsFeed news = new NewsFeed();
+
+        /// <summary>
+        /// 
+        /// </summary>
         public void DisplayMenu()
         {
             ConsoleHelper.OutputHeading("     Hakeel's News Feed");

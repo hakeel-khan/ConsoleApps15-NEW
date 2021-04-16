@@ -1,6 +1,7 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
 using System;
 
 namespace ConsoleAppProject
@@ -16,8 +17,13 @@ namespace ConsoleAppProject
     public static class Program
     {   
         private static DistanceConverter converter = new DistanceConverter();
+
         private static BMI calculator = new BMI();
+
         private static StudentGrades studentGrades = new StudentGrades();
+
+        private static NetworkApp app04 = new NetworkApp();
+
         public static void Main(string[] args)
         {
             
@@ -26,7 +32,7 @@ namespace ConsoleAppProject
 
             ConsoleHelper.OutputHeading("BNU CO453 Applications Programming 2020 - 2021!");
 
-            string[] choices = { "Distance Converter", "BMI Calculator", "Student Marks" };
+            string[] choices = { "Distance Converter", "BMI Calculator", "Student Marks", "Social Network" };
             int choiceNo = ConsoleHelper.SelectChoice(choices);
 
             if(choiceNo == 1)
@@ -40,6 +46,10 @@ namespace ConsoleAppProject
             else if (choiceNo == 3)
             {
                 studentGrades.RunStudentGrades();
+            }
+            else if (choiceNo == 4)
+            {
+                app04.DisplayMenu();
             }
             else
             {

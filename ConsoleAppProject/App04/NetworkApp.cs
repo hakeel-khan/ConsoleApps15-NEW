@@ -49,7 +49,8 @@ namespace ConsoleAppProject.App04
 
         private void PostMessage()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Please enter the message you would like to post");
+            Console.ReadLine();
         }
     }
 }

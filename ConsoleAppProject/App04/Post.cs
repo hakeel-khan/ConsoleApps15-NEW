@@ -6,9 +6,10 @@ namespace ConsoleAppProject.App04
     public class Post
     {
         private int likes;
-
+        
         private readonly List<String> comments;
 
+        public int Id { get; set; }
 
         // username of the post's author
         public String Username { get; }

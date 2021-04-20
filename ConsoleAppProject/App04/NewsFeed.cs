@@ -45,6 +45,7 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void AddMessagePost(MessagePost message)
         {
+            message.Id = posts.Count + 1;
             posts.Add(message);
         }
 
@@ -55,8 +56,29 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void AddPhotoPost(PhotoPost photo)
         {
+            photo.Id = posts.Count + 1;
             posts.Add(photo);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void LikePost(Post post)
+        {
+            // you have to get all the posts 
+            // find the parameter post in all posts collection 
+            // Gonna have to use the private readonly post list 
+            // invoke like method in post class same with unlike
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void UnlikePost(Post post)
+        {
+
+        }
+
 
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
@@ -70,6 +92,11 @@ namespace ConsoleAppProject.App04
                 post.Display();
                 Console.WriteLine();   // empty line between posts
             }
+        }
+
+        public List<Post> GetPosts()
+        {
+            return posts;
         }
     }
 

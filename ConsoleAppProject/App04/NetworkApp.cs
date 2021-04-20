@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ConsoleAppProject.App04
@@ -17,8 +18,8 @@ namespace ConsoleAppProject.App04
 
             string[] choices = new string[]
             {
-                "Post Message", "Post Image", "" +
-                "Display All Posts", "Quit"
+                "Post Message", "Post Image",
+                "Display All Posts", "Like", "Unlike", "Quit"
             };
 
             bool wantToQuit = false;
@@ -31,17 +32,47 @@ namespace ConsoleAppProject.App04
                     case 1: PostMessage(); break;
                     case 2: PostImage(); break;
                     case 3: DisplayAll(); break;
-                    case 4: wantToQuit = true; break;
+                    case 4: ChoosePosts(true); break;
+                    case 5: ChoosePosts(false); break;
+                    case 6: wantToQuit = true; break;
                 }
             } while (!wantToQuit);
 
         }
 
+        private void ChoosePosts(bool like)
+        {
+            foreach (Post currentPost in news.GetPosts())
+            {
+                Console.Write(currentPost.Id);
+                currentPost.Display();
+                Console.WriteLine();  
+            }
+
+            int choice = int.Parse(Console.ReadLine());
+            Post post = news.GetPosts().FirstOrDefault(i => i.Id == choice);
+
+            if (like)
+            {
+                news.LikePost(post);
+            }
+            else
+            {
+                news.UnlikePost(post);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         private void DisplayAll()
         {
             news.Display();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void PostImage()
         {
             Console.WriteLine("Please enter the caption you would like to post");
@@ -62,6 +93,9 @@ namespace ConsoleAppProject.App04
             news.AddPhotoPost(post);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void PostMessage()
         {
             Console.WriteLine("Please enter the message you would like to post");

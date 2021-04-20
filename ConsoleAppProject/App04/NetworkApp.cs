@@ -44,13 +44,34 @@ namespace ConsoleAppProject.App04
 
         private void PostImage()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Please enter the caption you would like to post");
+            string caption = Console.ReadLine();
+
+            Console.WriteLine("Please enter the author of the post");
+            string author = Console.ReadLine();
+
+            Console.WriteLine("Please enter the image name of the post");
+            string imageName = Console.ReadLine();
+            if (imageName.EndsWith(".jpg") == false)
+            {
+                imageName = imageName + ".jpg";
+            }
+
+            PhotoPost post = new PhotoPost(author, imageName, caption);
+
+            news.AddPhotoPost(post);
         }
 
         private void PostMessage()
         {
             Console.WriteLine("Please enter the message you would like to post");
-            Console.ReadLine();
+            string userInput = Console.ReadLine();
+
+            Console.WriteLine("Please enter the author for your post");
+            string author = Console.ReadLine();
+            MessagePost post = new MessagePost(author,userInput);
+
+            news.AddMessagePost(post);
         }
     }
 }

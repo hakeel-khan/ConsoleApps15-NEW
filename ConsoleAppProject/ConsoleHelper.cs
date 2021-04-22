@@ -7,7 +7,7 @@ namespace ConsoleAppProject
     public static class ConsoleHelper
     {
         /// <summary>
-        /// 
+        /// The user selecting their choice 
         /// </summary>
         public static int SelectChoice(String[] choices)
         {
@@ -30,7 +30,7 @@ namespace ConsoleAppProject
         }
 
         /// <summary>
-        /// 
+        /// Outputs the heading for all the apps
         /// </summary>
         public static void OutputHeading(string title)
         {

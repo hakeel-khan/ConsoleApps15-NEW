@@ -10,7 +10,7 @@ namespace ConsoleAppProject.App04
         private NewsFeed news = new NewsFeed();
 
         /// <summary>
-        /// 
+        /// Here it will display the menu
         /// </summary>
         public void DisplayMenu()
         {
@@ -39,7 +39,10 @@ namespace ConsoleAppProject.App04
             } while (!wantToQuit);
 
         }
-
+        /// <summary>
+        /// Here the user chooses the post they would like
+        /// </summary>
+        /// <param name="like"></param>
         private void ChoosePosts(bool like)
         {
             foreach (Post currentPost in news.GetPosts())
@@ -55,15 +58,17 @@ namespace ConsoleAppProject.App04
             if (like)
             {
                 news.LikePost(post);
+                Console.WriteLine("You have liked this post");
             }
             else
             {
                 news.UnlikePost(post);
+                Console.WriteLine("You have unliked this post");
             }
         }
 
         /// <summary>
-        /// 
+        /// Here it displays everything
         /// </summary>
         private void DisplayAll()
         {
@@ -71,7 +76,7 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Here it asks the user what they would like to post 
         /// </summary>
         private void PostImage()
         {
@@ -94,7 +99,7 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Here it asks the user what they would like to post 
         /// </summary>
         private void PostMessage()
         {

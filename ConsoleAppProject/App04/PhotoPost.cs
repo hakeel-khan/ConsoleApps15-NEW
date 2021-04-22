@@ -8,7 +8,7 @@ namespace ConsoleAppProject.App04
     /// Other data, such as author and time, are also stored.
     ///</summary>
     /// <author>
-    /// Michael Kölling and David J. Barnes
+    /// Hakeel
     /// @version 0.1
     /// </author>
     public class PhotoPost : Post
@@ -38,6 +38,9 @@ namespace ConsoleAppProject.App04
             this.Caption = caption;
         }
 
+        /// <summary>
+        /// Displaying the photo post
+        /// </summary>
         public override void Display()
         {
             Console.WriteLine("PhotoPost Display Method");

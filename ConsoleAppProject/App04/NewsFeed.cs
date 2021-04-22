@@ -15,7 +15,7 @@ namespace ConsoleAppProject.App04
     /// search or ordering functions.
     ///</summary>
     ///<author>
-    ///  Michael Kölling and David J. Barnes
+    ///  Hakeel
     ///  version 0.1
     ///</author> 
     public class NewsFeed
@@ -39,9 +39,7 @@ namespace ConsoleAppProject.App04
         }
 
         ///<summary>
-        /// Add a text post to the news feed.
-        /// 
-        /// @param text  The text post to be added.
+        /// Adding a message post
         ///</summary>
         public void AddMessagePost(MessagePost message)
         {
@@ -50,9 +48,7 @@ namespace ConsoleAppProject.App04
         }
 
         ///<summary>
-        /// Add a photo post to the news feed.
-        /// 
-        /// @param photo  The photo post to be added.
+        /// Adding a photo post
         ///</summary>
         public void AddPhotoPost(PhotoPost photo)
         {
@@ -61,22 +57,28 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Liking a post 
         /// </summary>
         public void LikePost(Post post)
         {
-            // you have to get all the posts 
-            // find the parameter post in all posts collection 
-            // Gonna have to use the private readonly post list 
-            // invoke like method in post class same with unlike
+            foreach (var currentPost in posts)
+            {
+                if(currentPost.Id == post.Id)
+                currentPost.Like();
+            }
+
         }
 
         /// <summary>
-        /// 
+        /// Unliking a post
         /// </summary>
         public void UnlikePost(Post post)
         {
-
+            foreach (var currentPost in posts)
+            {
+                if(currentPost.Id == post.Id)
+                currentPost.Unlike();
+            }
         }
 
 
@@ -94,6 +96,10 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// Gets the list of posts
+        /// </summary>
+        /// <returns></returns>
         public List<Post> GetPosts()
         {
             return posts;
